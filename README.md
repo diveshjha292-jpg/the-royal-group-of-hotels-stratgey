@@ -1,0 +1,1 @@
+# the-royal-group-of-hotels-stratgey
