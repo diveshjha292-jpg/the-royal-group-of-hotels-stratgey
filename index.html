@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Royal Group of Hotels - Luxury Hospitality</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #ffd700;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a1a2e" width="1200" height="600"/><circle cx="100" cy="100" r="80" fill="%23ffd700" opacity="0.1"/><circle cx="1100" cy="500" r="120" fill="%23ffd700" opacity="0.1"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 200px 20px 100px;
+            margin-top: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #1a1a2e;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a2e;
+        }
+        
+        .section-title span {
+            color: #ffd700;
+        }
+        
+        .hotels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .hotel-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .hotel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+        
+        .hotel-card-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .hotel-card-header h3 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hotel-card-body {
+            padding: 2rem;
+        }
+        
+        .hotel-card-body p {
+            margin-bottom: 1rem;
+        }
+        
+        .amenities {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .amenity {
+            padding: 0.5rem;
+            background: #f0f0f0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .about-section {
+            background: #f9f9f9;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: #ffd700;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">👑 Royal Hotels</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#hotels">Hotels</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Welcome to The Royal Group</h1>
+        <p>Experience luxury hospitality like never before</p>
+        <a href="#hotels" class="btn">Explore Our Hotels</a>
+    </section>
+
+    <!-- Hotels Section -->
+    <section id="hotels">
+        <div class="container">
+            <h2 class="section-title">Our <span>Premium Hotels</span></h2>
+            <div class="hotels-grid">
+                <!-- Hotel 1 -->
+                <div class="hotel-card">
+                    <div class="hotel-card-header">
+                        <h3>Royal Palace Hotel</h3>
+                        <p>⭐⭐⭐⭐⭐ New York</p>
+                    </div>
+                    <div class="hotel-card-body">
+                        <p>Experience absolute luxury in the heart of Manhattan. Our flagship property features world-class amenities and service.</p>
+                        <div class="amenities">
+                            <div class="amenity">🏊 Spa & Pool</div>
+                            <div class="amenity">🍽️ Fine Dining</div>
+                            <div class="amenity">💼 Conference</div>
+                            <div class="amenity">🏋️ Fitness</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 2 -->
+                <div class="hotel-card">
+                    <div class="hotel-card-header">
+                        <h3>Royal Beachside Resort</h3>
+                        <p>⭐⭐⭐⭐⭐ Miami</p>
+                    </div>
+                    <div class="hotel-card-body">
+                        <p>Escape to paradise with pristine beaches, water sports, and sunset dining experiences.</p>
+                        <div class="amenities">
+                            <div class="amenity">🏖️ Beach Access</div>
+                            <div class="amenity">🤿 Water Sports</div>
+                            <div class="amenity">🌅 Sunset Bar</div>
+                            <div class="amenity">🎭 Entertainment</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 3 -->
+                <div class="hotel-card">
+                    <div class="hotel-card-header">
+                        <h3>Royal Heritage Hotel</h3>
+                        <p>⭐⭐⭐⭐⭐ London</p>
+                    </div>
+                    <div class="hotel-card-body">
+                        <p>Immerse yourself in timeless elegance with historic charm and modern sophistication.</p>
+                        <div class="amenities">
+                            <div class="amenity">🏛️ Heritage Tours</div>
+                            <div class="amenity">☕ Tea Lounge</div>
+                            <div class="amenity">📚 Library</div>
+                            <div class="amenity">🎵 Live Music</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">About <span>The Royal Group</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Hospitality Excellence Since 1990</h2>
+                    <p>The Royal Group of Hotels represents the pinnacle of luxury hospitality. With over three decades of experience, we have established ourselves as a leading provider of world-class accommodation and service.</p>
+                    <p>Our commitment to excellence is reflected in every aspect of our operations, from our meticulously appointed rooms to our award-winning restaurants and spas.</p>
+                    <p>We pride ourselves on creating unforgettable memories for our guests, combining tradition with innovation.</p>
+                </div>
+                <div class="about-stats">
+                    <div style="background: #1a1a2e; color: white; padding: 2rem; border-radius: 8px; text-align: center;">
+                        <p style="font-size: 2.5rem; color: #ffd700; font-weight: bold;">50+</p>
+                        <p>Hotels Worldwide</p>
+                        <hr style="margin: 1rem 0; opacity: 0.3;">
+                        <p style="font-size: 2.5rem; color: #ffd700; font-weight: bold;">2M+</p>
+                        <p>Happy Guests Annually</p>
+                        <hr style="margin: 1rem 0; opacity: 0.3;">
+                        <p style="font-size: 2.5rem; color: #ffd700; font-weight: bold;">30+</p>
+                        <p>Years of Excellence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in <span>Touch</span></h2>
+            <div style="background: #f0f0f0; padding: 3rem; border-radius: 8px; text-align: center; max-width: 600px; margin: 0 auto;">
+                <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">We'd love to hear from you. Contact us today to book your next unforgettable experience.</p>
+                <p style="margin-bottom: 0.5rem;"><strong>📞 Phone:</strong> 1-800-ROYAL-GROUP</p>
+                <p style="margin-bottom: 0.5rem;"><strong>📧 Email:</strong> reservations@royalhotels.com</p>
+                <p style="margin-bottom: 2rem;"><strong>🌐 Website:</strong> www.royalhotels.com</p>
+                <a href="mailto:reservations@royalhotels.com" class="btn">Send Inquiry</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 The Royal Group of Hotels. All rights reserved.</p>
+        <p>Bringing luxury and comfort to your travels.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+</body>
+</html>
